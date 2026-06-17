@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trdmu"
+version = "0.1.0"
+description = "TRDMU implementation for road closure representation learning"
+requires-python = ">=3.9"
+dependencies = [
+    "networkx",
+    "numpy",
+    "pandas",
+    "PyYAML",
+    "scikit-learn",
+    "torch",
+]
+
+[tool.setuptools.packages.find]
+include = ["trdmu*"]
