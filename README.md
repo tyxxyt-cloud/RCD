@@ -1,4 +1,4 @@
-# TRDMU
+# CRCDM
 
 Official implementation for TRDMU-based road closure representation learning and training.
 
