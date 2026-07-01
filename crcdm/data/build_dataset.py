@@ -43,9 +43,7 @@ DEFAULT_CONFIG = Path(__file__).resolve().parents[2] / "configs" / "default.yaml
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Build processed CRCDM dataset from data0524."
-    )
+    parser = argparse.ArgumentParser(description="Build processed inputs for CRCDM.")
     parser.add_argument("--config", default=str(DEFAULT_CONFIG))
     return parser.parse_args()
 
@@ -451,7 +449,7 @@ def main() -> None:
     with open(data_cfg["road_graph"], "rb") as f:
         graph = pickle.load(f)
     trajectories = load_trajectories(
-        Path(data_cfg["tclosure_samples_root"]) / "selected_trajectories.jsonl.gz"
+        Path(data_cfg["trajectory_samples_root"]) / "selected_trajectories.jsonl.gz"
     )
 
     common_cols = [
@@ -480,7 +478,7 @@ def main() -> None:
     skipped = 0
     for split in ["train", "val", "test"]:
         samples_path = (
-            Path(data_cfg["tclosure_samples_root"]) / f"{split}_samples.csv.gz"
+            Path(data_cfg["trajectory_samples_root"]) / f"{split}_samples.csv.gz"
         )
         df = pd.read_csv(samples_path, parse_dates=["label_hour"])
         df["road_id"] = df["road_id"].astype(int)

@@ -1,3 +1,3 @@
-"""CRCDM reproduction for robust road closure detection."""
+"""Causality-aware robust road closure detection."""
 
 __all__ = ["config", "data", "models", "training", "utils"]

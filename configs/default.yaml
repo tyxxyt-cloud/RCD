@@ -1,17 +1,13 @@
 paths:
-  data_root: data
-  project_root: .
   processed_dir: processed
   output_root: outputs
 
 data:
-  common_samples: data/common/road_hour_samples.csv.gz
-  tclosure_samples_root: data/method_data/tclosure/dataset/samples
-  tclosure_dataset_root: data/method_data/tclosure/dataset
-  tclosure_sqlite: data/method_data/tclosure/runtime/tclosure_data0524.sqlite
-  road_graph: data/method_data/tclosure/dataset/artifacts/road_graph.pkl
-  road_metadata: data/method_data/tclosure/dataset/artifacts/road_metadata.csv.gz
-  road_flow: data/method_data/tclosure/dataset/artifacts/road_flow_10m.csv.gz
+  common_samples: data/processed/road_hour_samples.csv.gz
+  trajectory_samples_root: data/processed/trajectory_samples
+  road_graph: data/processed/artifacts/road_graph.pkl
+  road_metadata: data/processed/artifacts/road_metadata.csv.gz
+  road_flow: data/processed/artifacts/road_flow_10m.csv.gz
   flow_steps: 6
   flow_bin_minutes: 10
   max_traj: 24
@@ -51,7 +47,7 @@ model:
   rgcn_layers: 2
 
 training:
-  seed: 20260524
+  seed: 42
   device: cuda:0
   batch_size: 64
   epochs: 80
@@ -64,11 +60,7 @@ training:
   lambda_con: 0.5
   lambda_dis: 1.0
   log_every: 20
-  smoke_batches: 1
-  overfit_batches: 2
   num_workers: 0
 
 evaluation:
-  threshold_metric: f1
-  case_top_k_trajectories: 8
   split: test

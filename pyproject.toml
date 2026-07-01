@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crcdm"
-version = "0.2.0"
+version = "1.0.0"
 description = "Causality-aware robust road closure detection under external perturbations"
 requires-python = ">=3.9"
 dependencies = [
