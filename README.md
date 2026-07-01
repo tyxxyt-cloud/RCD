@@ -53,7 +53,7 @@ Python 3.9 or newer is required.
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -e '.[dev]'
+pip install -e .
 ```
 
 ## Configuration
@@ -95,18 +95,6 @@ Training outputs are written under `outputs/run_YYYYMMDD_HHMMSS/`. Evaluation ad
 - `evaluation/test_predictions.csv.gz` with sample identifiers, labels,
   probabilities, and binary predictions for both paths.
 
-## Tests
-
-```bash
-python3 -m compileall -q crcdm tests
-pytest -q
-```
-
-The tests use a synthetic road network and trajectory set. They cover road feature
-parsing/fallbacks, both semantic encoders, gradient reversal, CLUB estimation,
-counterfactual routing, optimization, checkpoint restoration, metrics, and prediction
-export without requiring the private data0524 files.
-
 ## Project structure
 
 ```text
@@ -117,5 +105,4 @@ crcdm/models/        CRCDM architecture and losses
 crcdm/training/      Alternating CLUB/main-model training
 crcdm/evaluation/    Checkpoint evaluation and prediction export
 crcdm/utils/         Metrics and shared helpers
-tests/               Synthetic CPU tests
 ```
