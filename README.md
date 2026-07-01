@@ -1,50 +1,9 @@
 # CRCDM
 
 Engineering reproduction of **Causality-Aware Robust Road Closure Detection from
-Trajectories under External Perturbations**, focused on the main CRCDM method in
-Sections 4.2-4.4.
+Trajectories under External Perturbations**
 
-The implementation provides a complete data0524 workflow:
 
-1. build road-flow and trajectory-deviation samples;
-2. train CRCDM with adversarial and CLUB disentanglement;
-3. select closure and congestion thresholds on the validation split;
-4. evaluate the best checkpoint and export test predictions.
-
-This repository does not claim to reproduce the paper's BJ13, SH18, or CD18 table
-values. The nine baselines, ablations, perturbation subsets, and sensitivity plots
-are outside the current scope.
-
-## Method coverage
-
-- Traffic-flow semantics: GRU over each road's flow/speed history, static road
-  feature fusion, and four-head target-specific graph attention.
-- Trajectory-deviation semantics: actual/planned role encoding, static road
-  feature fusion, two-layer relation-aware GCN, and trajectory-level LSTM.
-- Adaptive perturbation learning: learnable basis bank, cross-attention,
-  gradient-reversal adversarial disentanglement, and conditional Gaussian CLUB.
-- Perturbation-attributed discrimination: counterfactual removal for every basis,
-  soft causal routing, and separate closure/congestion prediction paths.
-
-The `H` and `Z` road encoders have the same architecture but independent parameters.
-
-## Road metadata contract
-
-`data.method_data/tclosure/dataset/artifacts/road_metadata.csv.gz` must contain:
-
-- required: `road_id`, `raw_eid`, `highway`, `length_m`, `start_lon`, `start_lat`,
-  `end_lon`, `end_lat`;
-- optional but preferred: `lanes`, `oneway`.
-
-The node representation uses road type, normalized lane count, normalized road
-length, direction as `sin(bearing)`/`cos(bearing)`, one-way state, and flags that
-identify inferred lane/one-way values. Real `lanes` and `oneway` values take
-precedence. Missing values use the configurable highway defaults under
-`data.road_features`.
-
-The generated manifest reports observed/inferred counts, coverage ratios, static
-feature names, and normalization statistics. If all lane or one-way fields are
-missing, the model remains runnable but the report makes the fallback explicit.
 
 ## Installation
 
