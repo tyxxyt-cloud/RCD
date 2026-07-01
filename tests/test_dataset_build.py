@@ -148,7 +148,7 @@ def test_synthetic_data0524_build_includes_static_features_and_report(
         [
             sys.executable,
             "-m",
-            "trdmu.data.build_dataset",
+            "crcdm.data.build_dataset",
             "--config",
             str(config_path),
         ],
@@ -157,7 +157,7 @@ def test_synthetic_data0524_build_includes_static_features_and_report(
         text=True,
     )
     payload = torch.load(
-        processed / "trdmu_dataset.pt", map_location="cpu", weights_only=False
+        processed / "crcdm_dataset.pt", map_location="cpu", weights_only=False
     )
     assert payload["splits"]["train"][0]["traffic_static"].shape[1] == 7
     assert payload["splits"]["train"][0]["traj_graphs"][0]["static"].shape[1] == 7

@@ -6,10 +6,10 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
-from trdmu.config import processed_path
+from crcdm.config import processed_path
 
 
-class TRDMUDataset(Dataset):
+class CRCDMDataset(Dataset):
     def __init__(self, payload: Dict[str, Any], split: str):
         self.payload = payload
         self.split = split

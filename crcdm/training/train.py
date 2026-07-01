@@ -9,10 +9,10 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 
-from trdmu.config import load_config, make_run_dir, resolve_device, set_seed, write_json
-from trdmu.data import TRDMUDataset, collate_samples, load_processed_dataset, pos_weight
-from trdmu.models import CRCDMModel, compute_loss
-from trdmu.utils.metrics import best_f1_threshold, binary_metrics
+from crcdm.config import load_config, make_run_dir, resolve_device, set_seed, write_json
+from crcdm.data import CRCDMDataset, collate_samples, load_processed_dataset, pos_weight
+from crcdm.models import CRCDMModel, compute_loss
+from crcdm.utils.metrics import best_f1_threshold, binary_metrics
 
 DEFAULT_CONFIG = Path(__file__).resolve().parents[2] / "configs" / "default.yaml"
 
@@ -57,8 +57,8 @@ def main() -> None:
     device = resolve_device(str(train_cfg["device"]))
 
     payload = load_processed_dataset(cfg)
-    train_ds = TRDMUDataset(payload, "train")
-    val_ds = TRDMUDataset(payload, "val")
+    train_ds = CRCDMDataset(payload, "train")
+    val_ds = CRCDMDataset(payload, "val")
 
     train_loader = DataLoader(
         train_ds,

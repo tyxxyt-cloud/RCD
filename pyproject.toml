@@ -20,4 +20,4 @@ dependencies = [
 dev = ["pytest>=8"]
 
 [tool.setuptools.packages.find]
-include = ["trdmu*"]
+include = ["crcdm*"]

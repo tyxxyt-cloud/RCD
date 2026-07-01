@@ -7,4 +7,4 @@ CONFIG_PATH="${CONFIG_PATH:-${PROJECT_ROOT}/configs/default.yaml}"
 cd "${PROJECT_ROOT}"
 export PYTHONPATH="${PROJECT_ROOT}:${PYTHONPATH:-}"
 
-python3 -m trdmu.evaluation.evaluate --config "${CONFIG_PATH}" "$@"
+python3 -m crcdm.evaluation.evaluate --config "${CONFIG_PATH}" "$@"

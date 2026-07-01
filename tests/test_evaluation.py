@@ -6,8 +6,8 @@ import pandas as pd
 import torch
 
 from tests.helpers import tiny_config, tiny_payload
-from trdmu.evaluation.evaluate import evaluate_checkpoint
-from trdmu.models import CRCDMModel
+from crcdm.evaluation.evaluate import evaluate_checkpoint
+from crcdm.models import CRCDMModel
 
 
 def test_checkpoint_evaluation_exports_metrics_and_predictions(tmp_path: Path) -> None:
@@ -15,7 +15,7 @@ def test_checkpoint_evaluation_exports_metrics_and_predictions(tmp_path: Path) -
     payload = tiny_payload()
     processed_dir = Path(cfg["paths"]["processed_dir"])
     processed_dir.mkdir(parents=True)
-    torch.save(payload, processed_dir / "trdmu_dataset.pt")
+    torch.save(payload, processed_dir / "crcdm_dataset.pt")
     model = CRCDMModel(cfg, payload["meta"])
     checkpoint_path = tmp_path / "best.pt"
     torch.save(

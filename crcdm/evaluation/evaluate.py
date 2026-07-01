@@ -10,16 +10,16 @@ import pandas as pd
 import torch
 from torch.utils.data import DataLoader
 
-from trdmu.config import (
+from crcdm.config import (
     ensure_dir,
     latest_run_dir,
     load_config,
     resolve_device,
     write_json,
 )
-from trdmu.data import TRDMUDataset, collate_samples, load_processed_dataset
-from trdmu.models import CRCDMModel
-from trdmu.utils.metrics import binary_metrics
+from crcdm.data import CRCDMDataset, collate_samples, load_processed_dataset
+from crcdm.models import CRCDMModel
+from crcdm.utils.metrics import binary_metrics
 
 
 DEFAULT_CONFIG = Path(__file__).resolve().parents[2] / "configs" / "default.yaml"
@@ -73,7 +73,7 @@ def evaluate_checkpoint(
     train_cfg = cfg["training"]
     device = resolve_device(str(train_cfg["device"]))
     payload = load_processed_dataset(cfg)
-    dataset = TRDMUDataset(payload, split)
+    dataset = CRCDMDataset(payload, split)
     loader = DataLoader(
         dataset,
         batch_size=int(train_cfg["batch_size"]),

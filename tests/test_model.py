@@ -3,11 +3,10 @@ from __future__ import annotations
 import torch
 
 from tests.helpers import tiny_config, tiny_meta, tiny_sample
-from trdmu.models import CRCDMModel, TRDMUModel, compute_loss, grl
+from crcdm.models import CRCDMModel, compute_loss, grl
 
 
-def test_backward_compatible_name_and_gradient_reversal() -> None:
-    assert TRDMUModel is CRCDMModel
+def test_gradient_reversal() -> None:
     x = torch.tensor([2.0], requires_grad=True)
     (grl(x, 0.25) * 4.0).sum().backward()
     assert torch.allclose(x.grad, torch.tensor([-1.0]))

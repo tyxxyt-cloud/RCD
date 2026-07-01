@@ -42,7 +42,7 @@ def resolve_device(name: str) -> torch.device:
 
 
 def processed_path(cfg: Dict[str, Any]) -> Path:
-    return ensure_dir(cfg["paths"]["processed_dir"]) / "trdmu_dataset.pt"
+    return ensure_dir(cfg["paths"]["processed_dir"]) / "crcdm_dataset.pt"
 
 
 def manifest_path(cfg: Dict[str, Any]) -> Path:

@@ -83,9 +83,9 @@ bash scripts/run_all.sh
 Individual stages:
 
 ```bash
-python3 -m trdmu.data.build_dataset --config configs/default.yaml
-python3 -m trdmu.training.train --config configs/default.yaml
-python3 -m trdmu.evaluation.evaluate --config configs/default.yaml --split test
+python3 -m crcdm.data.build_dataset --config configs/default.yaml
+python3 -m crcdm.training.train --config configs/default.yaml
+python3 -m crcdm.evaluation.evaluate --config configs/default.yaml --split test
 ```
 
 Training outputs are written under `outputs/run_YYYYMMDD_HHMMSS/`. Evaluation adds:
@@ -98,7 +98,7 @@ Training outputs are written under `outputs/run_YYYYMMDD_HHMMSS/`. Evaluation ad
 ## Tests
 
 ```bash
-python3 -m compileall -q trdmu tests
+python3 -m compileall -q crcdm tests
 pytest -q
 ```
 
@@ -112,10 +112,10 @@ export without requiring the private data0524 files.
 ```text
 configs/             Experiment and road-feature fallback configuration
 scripts/             Build/train/evaluate shell entry points
-trdmu/data/          data0524 preprocessing and PyTorch datasets
-trdmu/models/        CRCDM architecture and losses
-trdmu/training/      Alternating CLUB/main-model training
-trdmu/evaluation/    Checkpoint evaluation and prediction export
-trdmu/utils/         Metrics and shared helpers
+crcdm/data/          data0524 preprocessing and PyTorch datasets
+crcdm/models/        CRCDM architecture and losses
+crcdm/training/      Alternating CLUB/main-model training
+crcdm/evaluation/    Checkpoint evaluation and prediction export
+crcdm/utils/         Metrics and shared helpers
 tests/               Synthetic CPU tests
 ```

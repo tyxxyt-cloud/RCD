@@ -384,10 +384,6 @@ class CRCDMModel(nn.Module):
         }
 
 
-# Backward-compatible public name used by the first repository release.
-TRDMUModel = CRCDMModel
-
-
 def compute_loss(
     out: Dict[str, torch.Tensor],
     y_closure: torch.Tensor,

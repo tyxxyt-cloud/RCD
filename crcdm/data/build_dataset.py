@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 import torch
 
-from trdmu.config import (
+from crcdm.config import (
     ensure_dir,
     load_config,
     manifest_path,
