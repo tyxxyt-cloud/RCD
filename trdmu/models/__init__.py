@@ -1,3 +1,3 @@
-from .trdmu import TRDMUModel, compute_loss
+from .trdmu import CRCDMModel, TRDMUModel, compute_loss, grl
 
-__all__ = ["TRDMUModel", "compute_loss"]
+__all__ = ["CRCDMModel", "TRDMUModel", "compute_loss", "grl"]

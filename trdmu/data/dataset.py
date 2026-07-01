@@ -23,12 +23,20 @@ class TRDMUDataset(Dataset):
 
 
 def load_processed_dataset(cfg: Dict[str, Any]) -> Dict[str, Any]:
-    return torch.load(processed_path(cfg), map_location="cpu")
+    path = processed_path(cfg)
+    try:
+        return torch.load(path, map_location="cpu", weights_only=False)
+    except TypeError:
+        return torch.load(path, map_location="cpu")
 
 
 def collate_samples(batch: List[Dict[str, Any]]) -> Dict[str, Any]:
-    y_closure = torch.tensor([float(x["y_closure"]) for x in batch], dtype=torch.float32)
-    y_congestion = torch.tensor([float(x["y_congestion"]) for x in batch], dtype=torch.float32)
+    y_closure = torch.tensor(
+        [float(x["y_closure"]) for x in batch], dtype=torch.float32
+    )
+    y_congestion = torch.tensor(
+        [float(x["y_congestion"]) for x in batch], dtype=torch.float32
+    )
     return {
         "samples": batch,
         "y_closure": y_closure,

@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "trdmu"
-version = "0.1.0"
-description = "TRDMU implementation for road closure representation learning"
+name = "crcdm"
+version = "0.2.0"
+description = "Causality-aware robust road closure detection under external perturbations"
 requires-python = ">=3.9"
 dependencies = [
     "networkx",
@@ -15,6 +15,9 @@ dependencies = [
     "scikit-learn",
     "torch",
 ]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
 
 [tool.setuptools.packages.find]
 include = ["trdmu*"]

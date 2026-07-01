@@ -12,7 +12,9 @@ from sklearn.metrics import (
 )
 
 
-def best_f1_threshold(y_true: np.ndarray, scores: np.ndarray) -> Tuple[float, Dict[str, float]]:
+def best_f1_threshold(
+    y_true: np.ndarray, scores: np.ndarray
+) -> Tuple[float, Dict[str, float]]:
     y_true = y_true.astype(np.int8)
     scores = scores.astype(float)
     if len(scores) == 0:
@@ -38,7 +40,9 @@ def best_f1_threshold(y_true: np.ndarray, scores: np.ndarray) -> Tuple[float, Di
     return best_threshold, best_metrics
 
 
-def binary_metrics(y_true: np.ndarray, scores: np.ndarray, threshold: float) -> Dict[str, object]:
+def binary_metrics(
+    y_true: np.ndarray, scores: np.ndarray, threshold: float
+) -> Dict[str, object]:
     y_true = y_true.astype(np.int8)
     scores = scores.astype(float)
     pred = (scores >= threshold).astype(np.int8)

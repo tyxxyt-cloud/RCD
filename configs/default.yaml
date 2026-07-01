@@ -14,17 +14,41 @@ data:
   road_flow: data/method_data/tclosure/dataset/artifacts/road_flow_10m.csv.gz
   flow_steps: 6
   flow_bin_minutes: 10
-  max_traj: 8
+  max_traj: 24
   k_hop: 1
   rebuild: false
+  road_features:
+    lane_defaults:
+      motorway: 3
+      motorway_link: 1
+      trunk: 3
+      trunk_link: 1
+      primary: 2
+      primary_link: 1
+      secondary: 2
+      secondary_link: 1
+      tertiary: 1
+      tertiary_link: 1
+      residential: 1
+      unclassified: 1
+      service: 1
+      default: 1
+    oneway_defaults:
+      motorway: true
+      motorway_link: true
+      trunk: true
+      trunk_link: true
+      default: false
 
 model:
-  hidden_dim: 64
-  perturbation_bases: 8
-  highway_emb_dim: 8
-  role_emb_dim: 8
-  dropout: 0.2
-  rgcn_layers: 1
+  hidden_dim: 512
+  perturbation_dim: 256
+  perturbation_bases: 14
+  attention_heads: 4
+  highway_emb_dim: 32
+  role_emb_dim: 32
+  dropout: 0.3
+  rgcn_layers: 2
 
 training:
   seed: 20260524
@@ -33,11 +57,12 @@ training:
   epochs: 80
   early_stop_patience: 12
   learning_rate: 0.001
-  weight_decay: 0.0001
+  weight_decay: 0.00001
   grad_clip_norm: 5.0
   lambda_grl: 1.0
-  lambda_mi: 0.05
-  lambda_con: 0.3
+  lambda_mi: 0.1
+  lambda_con: 0.5
+  lambda_dis: 1.0
   log_every: 20
   smoke_batches: 1
   overfit_batches: 2
@@ -46,3 +71,4 @@ training:
 evaluation:
   threshold_metric: f1
   case_top_k_trajectories: 8
+  split: test
