@@ -1,6 +1,6 @@
 # CRCDM
 
-Code for **Causality-Aware Robust Road Closure Detection from Trajectories under
+Code for **Causality-aware Robust Road Closure Detection from Trajectories under
 External Perturbations**.
 
 ## Requirements
