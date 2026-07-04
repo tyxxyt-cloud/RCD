@@ -3,6 +3,33 @@
 Code for **Causality-aware Robust Road Closure Detection from Trajectories under
 External Perturbations**.
 
+## Project Structure
+
+```text
+RCD/
+├── configs/
+│   ├── default.yaml
+│   └── example.yaml
+├── crcdm/
+│   ├── config/
+│   ├── data/
+│   ├── evaluation/
+│   ├── models/
+│   ├── training/
+│   └── utils/
+├── examples/
+│   └── data/
+├── scripts/
+│   ├── evaluate.sh
+│   ├── run_all.sh
+│   ├── run_example.sh
+│   └── train.sh
+├── LICENSE
+├── README.md
+├── pyproject.toml
+└── requirements.txt
+```
+
 ## Requirements
 
 ```bash
@@ -43,29 +70,3 @@ bash scripts/run_all.sh
 
 The included one-batch example can be run with `bash scripts/run_example.sh`.
 
-## Project Structure
-
-```text
-RCD/
-├── configs/
-│   ├── default.yaml
-│   └── example.yaml
-├── crcdm/
-│   ├── config/
-│   ├── data/
-│   ├── evaluation/
-│   ├── models/
-│   ├── training/
-│   └── utils/
-├── examples/
-│   └── data/
-├── scripts/
-│   ├── evaluate.sh
-│   ├── run_all.sh
-│   ├── run_example.sh
-│   └── train.sh
-├── LICENSE
-├── README.md
-├── pyproject.toml
-└── requirements.txt
-```
