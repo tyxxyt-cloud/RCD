@@ -1,0 +1,79 @@
+{
+  "seed": 42,
+  "minimum_target_road_length_m": 200.0,
+  "selection_criteria": {
+    "minimum_graph_degree": 2,
+    "target_flow_history_steps": 6,
+    "required_target_flow_coverage": 1.0,
+    "trajectories_per_sample": 8,
+    "actual_and_planned_paths_required": true,
+    "positive_observed_and_baseline_flow_speed": true
+  },
+  "splits": {
+    "test": {
+      "samples": 16,
+      "unique_roads": 10,
+      "unique_hours": 12,
+      "labels": {
+        "closure_0_congestion_0": 6,
+        "closure_0_congestion_1": 5,
+        "closure_1_congestion_0": 5
+      },
+      "target_length_m": {
+        "min": 202.786,
+        "mean": 485.07987499999996,
+        "median": 510.488,
+        "max": 834.594
+      },
+      "minimum_degree": 2,
+      "minimum_flow_coverage": 1.0,
+      "minimum_trajectory_count": 8
+    },
+    "train": {
+      "samples": 64,
+      "unique_roads": 27,
+      "unique_hours": 41,
+      "labels": {
+        "closure_0_congestion_0": 32,
+        "closure_0_congestion_1": 16,
+        "closure_1_congestion_0": 16
+      },
+      "target_length_m": {
+        "min": 202.786,
+        "mean": 379.83715625,
+        "median": 322.534,
+        "max": 834.594
+      },
+      "minimum_degree": 2,
+      "minimum_flow_coverage": 1.0,
+      "minimum_trajectory_count": 8
+    },
+    "val": {
+      "samples": 16,
+      "unique_roads": 11,
+      "unique_hours": 10,
+      "labels": {
+        "closure_0_congestion_0": 8,
+        "closure_0_congestion_1": 3,
+        "closure_1_congestion_0": 5
+      },
+      "target_length_m": {
+        "min": 257.61,
+        "mean": 484.8906875,
+        "median": 486.82849999999996,
+        "max": 834.594
+      },
+      "minimum_degree": 2,
+      "minimum_flow_coverage": 1.0,
+      "minimum_trajectory_count": 8
+    }
+  },
+  "files": {
+    "road_hour_rows": 96,
+    "trajectory_records": 768,
+    "road_metadata_rows": 120,
+    "road_graph_nodes": 120,
+    "road_graph_edges": 154,
+    "road_flow_rows": 660
+  }
+}

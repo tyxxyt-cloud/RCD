@@ -1,0 +1,66 @@
+paths:
+  processed_dir: examples/runtime/processed
+  output_root: examples/runtime/outputs
+
+data:
+  common_samples: examples/data/processed/road_hour_samples.csv.gz
+  trajectory_samples_root: examples/data/processed/trajectory_samples
+  road_graph: examples/data/processed/artifacts/road_graph.pkl
+  road_metadata: examples/data/processed/artifacts/road_metadata.csv.gz
+  road_flow: examples/data/processed/artifacts/road_flow_10m.csv.gz
+  flow_steps: 6
+  flow_bin_minutes: 10
+  max_traj: 8
+  k_hop: 1
+  rebuild: true
+  road_features:
+    lane_defaults:
+      motorway: 3
+      motorway_link: 1
+      trunk: 3
+      trunk_link: 1
+      primary: 2
+      primary_link: 1
+      secondary: 2
+      secondary_link: 1
+      tertiary: 1
+      tertiary_link: 1
+      residential: 1
+      unclassified: 1
+      service: 1
+      default: 1
+    oneway_defaults:
+      motorway: true
+      motorway_link: true
+      trunk: true
+      trunk_link: true
+      default: false
+
+model:
+  hidden_dim: 64
+  perturbation_dim: 32
+  perturbation_bases: 4
+  attention_heads: 4
+  highway_emb_dim: 8
+  role_emb_dim: 8
+  dropout: 0.1
+  rgcn_layers: 2
+
+training:
+  seed: 42
+  device: cpu
+  batch_size: 64
+  epochs: 1
+  early_stop_patience: 1
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  grad_clip_norm: 5.0
+  lambda_grl: 1.0
+  lambda_mi: 0.1
+  lambda_con: 0.5
+  lambda_dis: 1.0
+  log_every: 1
+  num_workers: 0
+
+evaluation:
+  split: test

@@ -34,3 +34,5 @@ To run data preparation, training, and evaluation sequentially:
 ```bash
 bash scripts/run_all.sh
 ```
+
+The included one-batch example can be run with `bash scripts/run_example.sh`.
